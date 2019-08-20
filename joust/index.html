@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>HDT录像播放</title>
+		<style type="text/css">
+			body {
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="joust-container"></div>
+		
+<script type="text/javascript" src="react.min.js"></script>
+<script type="text/javascript" src="react-dom.min.js"></script>
+<link rel="stylesheet" href="joust.css"></link>
+<script type="text/javascript" src="joust.js"></script>
+<script type="text/javascript">
+	var hsrFile = GetUrlPara();
+	//alert(typeof(hsrFile)+":"+hsrFile);
+	if(hsrFile == "undefined") {
+		alert("index.html?后需带上播放文件名！");
+	} else {
+		Joust.launcher("joust-container")
+			.height(500)
+			.width(980)
+			.fromUrl("replay/"+hsrFile);
+	}
+	
+	
+	function GetUrlPara() {
+　　　　var url = document.location.toString();
+　　　　var arrUrl = url.split("?");
+　　　　var para = decodeURI(arrUrl[1]);
+　　　　return para;
+　　}
+</script>
+
+	</body>
+</html>
